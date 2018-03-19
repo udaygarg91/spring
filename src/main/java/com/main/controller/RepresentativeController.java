@@ -61,7 +61,7 @@ public class RepresentativeController {
 			@Valid @RequestBody Representative representative) {
 		responseMessage = representativeService
 				.UpdateRepresentative(representative);
-		if ("notFound".equals(responseMessage.getMessage())) {
+		if ("notFound".equals(responseMessage.getStatus())) {
 			return ResponseEntity.status(404).body(responseMessage);
 		}
 		return ResponseEntity.ok(representative);
